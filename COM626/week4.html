@@ -106,7 +106,7 @@ You then use the <code>PendingIntent</code> in a notification:
         <p>Notifications can have additional actions (which appear as buttons).
         You use <code>Notification.Builder</code>'s <code>addAction()</code> with an <code>Action</code> object to add these; again providing an icon, text and a PendingIntent. For example, here we create a button "Stop Music Player" which is associated with a <code>PendingIntent</code> containing a <em>broadcast</em> <code>Intent</code> to send a broadcast with the action <code>STOP_MUSIC</code>. (Note how we use <code>PendingIntent.getBroadcast()</code> rather than <code>PendingIntent.getActivity()</code>)
         <pre>
-val broadcast =Intent().apply {
+val broadcast = Intent().apply {
     action = "STOP_MUSIC"
 }
 val piStopMusic = PendingIntent.getBroadcast(this, 1, intent2, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -149,7 +149,7 @@ channels.</p>
 val channelID = "EMAIL_CHANNEL" 
 
 // Check that we are running at least Oreo, channels can't be used in older versions
-if(Build.VERSION.SDK_INT &gt;=Build.VERSION_CODES.O)  {
+if(Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O)  {
     val channel = NotificationChannel(channelID, "Email notifications", NotificationManager.IMPORTANCE_DEFAULT) 
     val nMgr = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
     nMgr.createNotificationChannel(channel)
@@ -298,8 +298,8 @@ broadcasts topic) to allow your activity to receive selected implicit intents</l
 <pre>
 &lt;activity....&gt;
     &lt;intent-filter&gt;
-        &lt;action android:name="MyAction"&gt;
-        &lt;category android:name="android.intent.category.DEFAULT /&gt;
+        &lt;action android:name="MyAction" /&gt;
+        &lt;category android:name="android.intent.category.DEFAULT" /&gt;
     &lt;/intent-filter&gt;
 &lt;/activity&gt;
 </pre>
