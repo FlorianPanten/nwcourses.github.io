@@ -482,20 +482,22 @@ first of all need to define our vertex and fragment shaders. Typically you put y
 <a href="http://developer.android.com/training/graphics/opengl/draw.html">this
 article on the Android developer site</a>). The string variables containing the shader source would be attributes of your renderer class.
 <pre>
-val vertexShaderSrc =
-    "attribute vec4 aVertex;\n" +
-        "void main(void)\n" +
-        "{\n"+
-        "gl_Position = aVertex;\n" +
-        "}\n"
+val vertexShaderSrc = """
+    attribute vec4 aVertex;
+    
+    void main(void) {
+        gl_Position = aVertex;
+    }
+""".trimIndent()
 
-val fragmentShaderSrc =
-    "precision mediump float;\n" +
-        "uniform vec4 uColour;\n" +
-        "void main(void)\n"+
-        "{\n"+
-        "gl_FragColor = uColour;\n" +
-        "}\n"
+val fragmentShaderSrc = """
+    precision mediump float;
+    uniform vec4 uColour;
+    
+    void main(void) {
+        gl_FragColor = uColour;
+    }
+""".trimIndent()
 </pre>
 
 <p>You then need to <em>compile the shaders</em> into native GPU machine code. A method is a good way to do this, as you will need to compile each shader (the vertex shader and the fragment shader).
